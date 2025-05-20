@@ -117,6 +117,7 @@ document.getElementById("loginForm").addEventListener('submit', function(event) 
       showCancelButton: true,
       showConfirmButton: false,
       cancelButtonColor: 'darkred',
+      position: 'bottom-end',
       toast: true
     });
     return;
@@ -139,6 +140,7 @@ document.getElementById("loginForm").addEventListener('submit', function(event) 
       showCancelButton: true,
       showConfirmButton: false,
       cancelButtonColor: 'darkred',
+      position: 'bottom-end',
       toast: true
     });
     return;
@@ -154,6 +156,7 @@ document.getElementById("loginForm").addEventListener('submit', function(event) 
     cancelButtonText: 'Cancel',
     confirmButtonColor: '#276dc9',
     cancelButtonColor: 'darkred',
+    position: 'bottom-end',
     allowOutsideClick: false,
     toast: true,
     preConfirm: () => {
@@ -174,6 +177,7 @@ document.getElementById("loginForm").addEventListener('submit', function(event) 
         timer: 3000,
         showConfirmButton: true,
         confirmButtonColor: '#276dc9',
+        position: 'bottom-end',
         toast: true
       }).then(() => {
         window.location.href = 'dashboard.html';
