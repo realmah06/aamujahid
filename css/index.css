@@ -58,4 +58,17 @@ button{
     border: none;
     background-color: #037961;
     color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #022e25;
+    transition: 0.5s;
+}
+footer{
+    bottom: 10px;
+    position: fixed;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
 }
