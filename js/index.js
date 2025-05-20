@@ -101,6 +101,7 @@ document.getElementById("loginForm").addEventListener('submit', function(event) 
       showCancelButton: true,
       showConfirmButton: false,
       cancelButtonColor: 'darkred',
+      position: 'bottom-end',
       toast: true
     });
     return;
