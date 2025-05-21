@@ -36,6 +36,13 @@
     margin-right: 15px;
     font-size: 19px;
 }
+.content{
+    width: 100%;
+}
+.balance-container{
+    padding: 10px 20px;
+    background-color: rgb(21, 172, 121);
+}
     </style>
 <body>
    <div class="header">
@@ -47,9 +54,40 @@
         <i class="bi bi-bell"></i>
     </div>
    </div>
-   <div class="balance-container">
-    
+   <div class="content">
+    <div class="balance-container">
+        <div class="head-1">
+            <div class="oly">
+                <i class="bi bi-patch-check-fill"></i> Available Balance
+            </div>
+            <div class="history">
+                Transaction History
+            </div>
+        </div>
+        <div class="head-2">
+             <h3>
+    Balance: <span id="balance">$1,234.56</span>
+    <button onclick="toggleBalance()">Hide</button>
+  </h3>
+        </div>
    </div>
+   </div>
+    <script>
+    const balanceElement = document.getElementById("balance");
+    const button = document.querySelector("button");
+    const actualBalance = "$1,234.56";
+    const hiddenBalance = "****";
+
+    function toggleBalance() {
+      if (balanceElement.textContent === actualBalance) {
+        balanceElement.textContent = hiddenBalance;
+        button.textContent = "Show";
+      } else {
+        balanceElement.textContent = actualBalance;
+        button.textContent = "Hide";
+      }
+    }
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/custom.js"></script>
     <script src="js/dashboard.js"></script>
