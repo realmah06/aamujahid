@@ -38,14 +38,28 @@
 }
 .content{
     width: 100%;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 .balance-container{
-    padding: 10px 20px;
-    background-color: rgb(21, 172, 121);
+    padding: 10px 30px;
+    background-color: rgb(14, 143, 100);
     margin: 20px;
     color: #fff;
     border-radius: 10px;
+}
+.balance-container .head-1{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 550;
+}
+.balance-container .head-2{
+    margin: 5px;
+    display: flex;
+    
+}
+.balance-container .head-2 h3{
+    letter-spacing: 0.3px;
 }
     </style>
 <body>
@@ -69,7 +83,8 @@
             </div>
         </div>
         <div class="head-2">
-             <h3>Balance: <span id="balance">₦0.00</span></div>
+             <h3><span id="balance">₦0.00</span></div>
+                
    </div>
    </div>
     <script>
