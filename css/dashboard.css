@@ -1,0 +1,19 @@
+.header{
+    top: 0;
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.header .profile{
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+.header .profile img{
+    height: 65px;
+}
+.header .profile h3{
+    color: darkred;
+}
