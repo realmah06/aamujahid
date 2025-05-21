@@ -104,12 +104,38 @@ body{
 }
 .sub-menu li{
     font-size: 10px;
-    margin: 5px;
+    margin: 7px;
     list-style: none;
     width: 33%;
     text-align: center;
 }
 .sub-menu li i{
+    background-color: #f0f8ff;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px 11px;
+    margin: 3px;
+}
+.sub-menu li p{
+    font-weight: 650;
+    margin-top: 10px;
+}
+menu{
+    padding: 7px;
+    box-shadow: 0px 0px 1.5px #aaa;
+    margin: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.menu li{
+    font-size: 10px;
+    margin: 7px;
+    list-style: none;
+    width: 24%;
+    display: inline-block;
+    text-align: center;
+}
+.menu li i{
     background-color: #f0f8ff;
     font-size: 20px;
     border-radius: 10px;
@@ -179,6 +205,24 @@ body{
             <p>Transfer</p>
         </li>
     </div>
+       <div class="menu">
+        <li>
+            <i class="bi bi-border-width"></i>
+            <p>Adjustment</p>
+        </li>
+        <li>
+            <i class="bi bi-bank"></i>
+            <p>Transfer</p>
+        </li>
+        <li>
+            <i class="bi bi-cash-stack"></i>
+            <p>Transfer</p>
+        </li>
+           <li>
+            <i class="bi bi-border-width"></i>
+            <p>Adjustment</p>
+           </li>
+       </div>
    </div>
     <script>
     const balanceElement = document.getElementById("balance");
