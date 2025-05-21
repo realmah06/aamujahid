@@ -79,10 +79,10 @@
     function toggleBalance() {
       if (balanceElement.textContent === actualBalance) {
         balanceElement.textContent = hiddenBalance;
-        button.innerHTML = `<i class="bi bi-eye-fill"></i>`;
+        button.innerHTML = `<p>Show</p>`;
       } else {
         balanceElement.textContent = actualBalance;
-        button.innerHTML = `<i class="bi bi-eye-slash-fill"></i>`;
+        button.textContent = "Hide";
       }
     }
   </script>
