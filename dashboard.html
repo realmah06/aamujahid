@@ -115,7 +115,7 @@
 
    </div>
 
-   <div class="mini-recent">
+   <div class="mini-recent" id="mini-recent">
     <div class="orayt">
         <div class="details">
             <p><b>Payment to Client:</b> Sani Aliyu <div class="amount"><b>-₦128,500.00</b></div></p>
@@ -139,14 +139,17 @@
     const button = document.querySelector("button");
     const actualBalance = "₦0.00";
     const hiddenBalance = "****";
+    const miniRecent = document.getElementById("mini-recent");
 
     function toggleBalance() {
       if (balanceElement.textContent === actualBalance) {
         balanceElement.textContent = hiddenBalance;
         button.innerHTML = `<i class="bi bi-eye-fill"></i>`;
+          miniRecent.style.display = "block";
       } else {
         balanceElement.textContent = actualBalance;
         button.innerHTML = `<i class="bi bi-eye-slash-fill"></i>`;
+        miniRecent.style.display = "none";
       }
     }
   </script>
