@@ -38,6 +38,7 @@
 }
 .content{
     width: 100%;
+    margin-top: 100px;
 }
 .balance-container{
     padding: 10px 20px;
@@ -61,13 +62,11 @@
                 <i class="bi bi-patch-check-fill"></i> Available Balance
             </div>
             <div class="history">
-                Transaction History &nbsp; <span onclick="toggleBalance()"></span>
+                Transaction History &nbsp; <span onclick="toggleBalance()"><i class="bi bi-eye-fill"></i></span>
             </div>
         </div>
         <div class="head-2">
-             <h3>Balance: <span id="balance">₦1,234.56</span>
-  </h3><i class="bi bi-eye-slash-fill"></i>
-        </div>
+             <h3>Balance: <span id="balance">₦1,234.56</span></div>
    </div>
    </div>
     <script>
@@ -79,10 +78,10 @@
     function toggleBalance() {
       if (balanceElement.textContent === actualBalance) {
         balanceElement.textContent = hiddenBalance;
-        button.innerHTML = `<p>Show</p>`;
+        button.innerHTML = `<i class="bi bi-eye-fill"></i>`;
       } else {
         balanceElement.textContent = actualBalance;
-        button.textContent = "Hide";
+        button.innerHTML = `<i class="bi bi-eye-slash-fill"></i>`;
       }
     }
   </script>
