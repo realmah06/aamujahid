@@ -138,7 +138,7 @@ body{
 }
 .menu li{
     font-size: 10px;
-    margin-bottom: 5px;
+    margin: 7px;
     list-style: none;
     width: 19%;
     display: inline-block;
@@ -171,12 +171,29 @@ body{
     color: darkred;
     font-weight: 700;
     margin: 5px;
-
 }
 .margin h3, h4{
     padding: 5px;
     margin: 2px;
 }
+.bottom-bar{
+    background-color: #fff;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    width: 100%;
+}
+.bottom-bar li{
+    list-style: none;
+}
+.bottom-bar li a{
+    text-decoration: none;
+    color: #000;
+    font-size: 13px;
+}
+
     </style>
 <body>
     <div class="page">
@@ -237,9 +254,7 @@ body{
             <p>Cash Payment</p>
         </li>
     </div>
-
-       
-       <center>
+          <center>
         <div class="menu">
         <li><a href="invoice.html">
             <i class="bi bi-receipt"></i>
@@ -274,7 +289,7 @@ body{
             <p>Logout </p>
         </a></li>
        </div>
-       </center>
+          </center>
 
        <div class="margin">
            <h4 style="color: green;">Total Credit +₦0.00</h4>
