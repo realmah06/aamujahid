@@ -277,6 +277,9 @@ body{
     outline: none;
     width: 100%;
 }
+.none{
+    display: none;
+}
     </style>
 <body>
     <div class="page">
@@ -418,9 +421,9 @@ body{
         </div>
         <div class="form-group">
             <label for="Category">Category</label>
-            <select name="category" id="category">
+            <select name="category" id="adjust_category" onchange="showSection(this.value)">
                 <option value=""> -- Select Category --</option>
-                <option value="Agent Supplier">Agent Supplier</option>
+                <option value="agent-supplier">Agent Supplier</option>
                 <option value="Bank Account">Bank Account</option>
                 <option value="Branch">Branch</option>
                 <option value="Customers">Customers</option>
@@ -430,11 +433,16 @@ body{
                 <option value="Logistics">Logistics</option>
                 <option value="Partner">Partner</option>
                 <option value="Percentage">Percentage</option>
-                <option value="Purchaser">Purchasers</option>
+                <option value="Purchaser">Purchaser</option>
                 <option value="Profit">Profit</option>
                 <option value="Property">Property</option>
                 <option value="Vendor Supplier">Vendor Supplier</option>
             </select>
+        </div>
+        <div class="none" id="agent-supplier">
+            <div class="form-group">
+                <label for="Supplier">Select Supplier</label>
+            </div>
         </div>
     </div>
 </div>
@@ -492,6 +500,21 @@ function closePopup(id) {
     const popup = document.getElementById(id);
     popup.classList.remove('show');
 }
+
+ function showSection(value) {
+    // List all IDs
+    const ids = ['agent-supplier', 'user', 'manager'];
+    
+    // Hide all
+    ids.forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+    
+    // Show selected one if not empty
+    if (ids.includes(value)) {
+      document.getElementById(value).style.display = 'block';
+    }
+  }
   </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/custom.js"></script>
