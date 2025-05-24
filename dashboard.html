@@ -203,73 +203,72 @@ body{
     color: darkgreen;
 }
 .popup-form {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
-    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 1000;
 }
 
-.popup-form.active {
-    display: flex;
+.popup-form.show {
+    visibility: visible;
+    opacity: 1;
 }
 
 .popup-content {
-    background: #fff;
+    background: white;
     padding: 30px;
     border-radius: 15px;
     width: 90%;
     max-width: 500px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    transform: scale(0.9);
+    transform: scale(0.7);
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
 }
 
-.popup-form.active .popup-content {
+.popup-form.show .popup-content {
     transform: scale(1);
     opacity: 1;
 }
 
-.popup-content h2 {
-    margin-bottom: 20px;
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .popup-content input,
 .popup-content textarea,
 .popup-content button {
     width: 100%;
-    padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    padding: 10px;
     font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 .popup-content button {
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
-    cursor: pointer;
+    border: none;
     transition: background 0.3s ease;
 }
 
 .popup-content button:hover {
-    background-color: #0056b3;
+    background-color: #218838;
 }
 
-.close-btn {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 24px;
-    cursor: pointer;
-}
     </style>
 <body>
     <div class="page">
@@ -398,14 +397,14 @@ body{
    </div>
     </div>
 
-    <!-- Popup Templates -->
+    <!-- Reusable Popup Template -->
 <div id="adjustmentNotePopup" class="popup-form">
     <div class="popup-content">
         <span class="close-btn" onclick="closePopup('adjustmentNotePopup')">&times;</span>
         <h2>Adjustment Note</h2>
         <form>
-            <input type="text" placeholder="Reason for Adjustment" required>
-            <input type="number" placeholder="Amount" required>
+            <input type="text" placeholder="Reason for Adjustment">
+            <input type="number" placeholder="Amount">
             <textarea placeholder="Description"></textarea>
             <button type="submit">Submit</button>
         </form>
@@ -417,9 +416,9 @@ body{
         <span class="close-btn" onclick="closePopup('bankTransferPopup')">&times;</span>
         <h2>Bank Transfer</h2>
         <form>
-            <input type="text" placeholder="From Bank" required>
-            <input type="text" placeholder="To Bank" required>
-            <input type="number" placeholder="Amount" required>
+            <input type="text" placeholder="From Bank">
+            <input type="text" placeholder="To Bank">
+            <input type="number" placeholder="Amount">
             <button type="submit">Transfer</button>
         </form>
     </div>
@@ -430,9 +429,9 @@ body{
         <span class="close-btn" onclick="closePopup('cashPaymentPopup')">&times;</span>
         <h2>Cash Payment</h2>
         <form>
-            <input type="text" placeholder="Receiver Name" required>
-            <input type="number" placeholder="Amount" required>
-            <textarea placeholder="Payment Purpose"></textarea>
+            <input type="text" placeholder="Receiver Name">
+            <input type="number" placeholder="Amount">
+            <textarea placeholder="Purpose"></textarea>
             <button type="submit">Pay</button>
         </form>
     </div>
@@ -457,13 +456,14 @@ body{
     }
 
 function openPopup(id) {
-    document.getElementById(id).classList.add("active");
+    const popup = document.getElementById(id);
+    popup.classList.add('show');
 }
 
 function closePopup(id) {
-    document.getElementById(id).classList.remove("active");
+    const popup = document.getElementById(id);
+    popup.classList.remove('show');
 }
-
   </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/custom.js"></script>
