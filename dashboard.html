@@ -419,31 +419,47 @@ body{
             <label for="date">Date</label>
             <input type="date" name="date" id="date">
         </div>
-        <div class="form-group">
-            <label for="Category">Category</label>
-            <select name="category" id="adjust_category" onchange="showSection(this.value)">
-                <option value=""> -- Select Category --</option>
-                <option value="agent-supplier">Agent Supplier</option>
-                <option value="Bank Account">Bank Account</option>
-                <option value="Branch">Branch</option>
-                <option value="Customers">Customers</option>
-                <option value="Employee">Employee</option>
-                <option value="Expenses">Expenses</option>
-                <option value="Investor">Investor</option>
-                <option value="Logistics">Logistics</option>
-                <option value="Partner">Partner</option>
-                <option value="Percentage">Percentage</option>
-                <option value="Purchaser">Purchaser</option>
-                <option value="Profit">Profit</option>
-                <option value="Property">Property</option>
-                <option value="Vendor Supplier">Vendor Supplier</option>
-            </select>
+       <div class="form-group">
+        <label for="Category">Category</label>
+        <select name="category" id="adjust_category" onchange="showSection(this.value)">
+            <option value="">-- Select Category --</option>
+            <option value="agent-supplier">Agent Supplier</option>
+            <option value="Bank Account">Bank Account</option>
+            <option value="Branch">Branch</option>
+            <option value="Customers">Customers</option>
+            <option value="Employee">Employee</option>
+            <option value="Expenses">Expenses</option>
+            <option value="Investor">Investor</option>
+            <option value="Logistics">Logistics</option>
+            <option value="Partner">Partner</option>
+            <option value="Percentage">Percentage</option>
+            <option value="Purchaser">Purchasers</option>
+            <option value="Profit">Profit</option>
+            <option value="Property">Property</option>
+            <option value="Vendor Supplier">Vendor Supplier</option>
+        </select>
         </div>
+
+        <!-- Example category content -->
         <div class="none" id="agent-supplier">
-            <div class="form-group">
-                <label for="Supplier">Select Supplier</label>
-            </div>
+        <div class="form-group">
+            <label for="Supplier">Select Supplier</label>
         </div>
+        </div>
+
+        <div class="none" id="Bank Account">
+        <div class="form-group">
+            <label>Bank Info</label>
+        </div>
+        </div>
+
+        <div class="none" id="Branch">
+        <div class="form-group">
+            <label>Branch Name</label>
+        </div>
+        </div>
+
+        <!-- Add similar divs for the other categories with matching IDs -->
     </div>
 </div>
 
@@ -502,17 +518,24 @@ function closePopup(id) {
 }
 
  function showSection(value) {
-    // List all IDs
-    const ids = ['agent-supplier', 'user', 'manager'];
-    
-    // Hide all
-    ids.forEach(id => {
-      document.getElementById(id).style.display = 'none';
+    const allCategories = [
+      "agent-supplier", "Bank Account", "Branch", "Customers", "Employee",
+      "Expenses", "Investor", "Logistics", "Partner", "Percentage",
+      "Purchaser", "Profit", "Property", "Vendor Supplier"
+    ];
+
+    allCategories.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.style.display = "none";
+      }
     });
-    
-    // Show selected one if not empty
-    if (ids.includes(value)) {
-      document.getElementById(value).style.display = 'block';
+
+    if (value && allCategories.includes(value)) {
+      const selectedDiv = document.getElementById(value);
+      if (selectedDiv) {
+        selectedDiv.style.display = "block";
+      }
     }
   }
   </script>
