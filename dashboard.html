@@ -202,7 +202,74 @@ body{
 .bottom-bar li .active{
     color: darkgreen;
 }
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+}
 
+.popup-form.active {
+    display: flex;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.popup-form.active .popup-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content input,
+.popup-content textarea,
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.popup-content button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
     </style>
 <body>
     <div class="page">
@@ -250,15 +317,15 @@ body{
    </div>
 
     <div class="sub-menu">
-        <li>
+        <li onclick="openPopup('adjustmentNotePopup')">
             <i class="bi bi-border-width"></i>
             <p>Adjustment Note</p>
         </li>
-        <li>
+        <li onclick="openPopup('bankTransferPopup')">
             <i class="bi bi-bank"></i>
             <p>Bank Transfer</p>
         </li>
-        <li>
+        <li onclick="openPopup('cashPaymentPopup')">
             <i class="bi bi-cash-stack"></i>
             <p>Cash Payment</p>
         </li>
@@ -330,6 +397,46 @@ body{
        </div>
    </div>
     </div>
+
+    <!-- Popup Templates -->
+<div id="adjustmentNotePopup" class="popup-form">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('adjustmentNotePopup')">&times;</span>
+        <h2>Adjustment Note</h2>
+        <form>
+            <input type="text" placeholder="Reason for Adjustment" required>
+            <input type="number" placeholder="Amount" required>
+            <textarea placeholder="Description"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div id="bankTransferPopup" class="popup-form">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('bankTransferPopup')">&times;</span>
+        <h2>Bank Transfer</h2>
+        <form>
+            <input type="text" placeholder="From Bank" required>
+            <input type="text" placeholder="To Bank" required>
+            <input type="number" placeholder="Amount" required>
+            <button type="submit">Transfer</button>
+        </form>
+    </div>
+</div>
+
+<div id="cashPaymentPopup" class="popup-form">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('cashPaymentPopup')">&times;</span>
+        <h2>Cash Payment</h2>
+        <form>
+            <input type="text" placeholder="Receiver Name" required>
+            <input type="number" placeholder="Amount" required>
+            <textarea placeholder="Payment Purpose"></textarea>
+            <button type="submit">Pay</button>
+        </form>
+    </div>
+</div>
     <script>
     const balanceElement = document.getElementById("balance");
     const button = document.querySelector("button");
@@ -348,6 +455,15 @@ body{
         miniRecent.style.display = "none";
       }
     }
+
+function openPopup(id) {
+    document.getElementById(id).classList.add("active");
+}
+
+function closePopup(id) {
+    document.getElementById(id).classList.remove("active");
+}
+
   </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/custom.js"></script>
